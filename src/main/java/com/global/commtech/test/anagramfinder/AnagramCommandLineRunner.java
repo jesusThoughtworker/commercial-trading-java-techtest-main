@@ -2,7 +2,6 @@ package com.global.commtech.test.anagramfinder;
 
 import java.io.File;
 import java.io.FileReader;
-import java.util.Scanner;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;

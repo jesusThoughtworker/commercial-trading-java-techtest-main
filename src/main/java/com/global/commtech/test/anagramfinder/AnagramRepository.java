@@ -10,6 +10,8 @@ import java.util.HashMap;
 @Component
 public class AnagramRepository {
 
+    private static HashMap<String, Collection<String>> ANAGRAMS_MEMORY = new HashMap<>();
+
     public void saveWord(String word){
         var anagramKey = ANAGRAMS_MEMORY.keySet().stream()
                 .filter(anagram -> isAnagram.apply(word, anagram))
@@ -36,13 +38,6 @@ public class AnagramRepository {
         ANAGRAMS_MEMORY = new HashMap<>();
     }
 
-    private Collection<String> getAnagramsList(String anagramKey){
-        return ANAGRAMS_MEMORY.get(anagramKey);
-    }
-
     @Autowired
     private IsAnagram isAnagram;
-
-    private static HashMap<String, Collection<String>> ANAGRAMS_MEMORY = new HashMap<>();
-
 }
