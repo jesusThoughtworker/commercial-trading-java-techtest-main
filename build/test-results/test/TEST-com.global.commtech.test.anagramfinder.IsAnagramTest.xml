@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.global.commtech.test.anagramfinder.IsAnagramTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2025-05-22T06:17:53" hostname="MacBook-Pro-de-Jesus.local" time="0.005">
+  <properties/>
+  <testcase name="[1] firstWord=hello, secondWord=ohlle, expectedOutput=true" classname="com.global.commtech.test.anagramfinder.IsAnagramTest" time="0.003"/>
+  <testcase name="[2] firstWord=hello, secondWord=ohllE, expectedOutput=true" classname="com.global.commtech.test.anagramfinder.IsAnagramTest" time="0.0"/>
+  <testcase name="[3] firstWord=helloe, secondWord=ohllEE, expectedOutput=true" classname="com.global.commtech.test.anagramfinder.IsAnagramTest" time="0.0"/>
+  <testcase name="[4] firstWord=hello, secondWord=oh, expectedOutput=false" classname="com.global.commtech.test.anagramfinder.IsAnagramTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
