@@ -16,7 +16,6 @@ import static java.lang.Boolean.FALSE;
 import static java.lang.Boolean.TRUE;
 import static org.assertj.core.api.Assertions.assertThat;
 
-@ExtendWith(MockitoExtension.class)
 class AnagramRepositoryTest {
 
     @Test
@@ -69,6 +68,5 @@ class AnagramRepositoryTest {
     }
 
 
-    @InjectMocks
-    private AnagramRepository anagramRepository;
+    private final AnagramRepository anagramRepository = new AnagramRepository();
 }
