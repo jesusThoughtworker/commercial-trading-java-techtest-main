@@ -10,7 +10,7 @@ import java.util.HashMap;
 @Component
 public class AnagramCache {
 
-    private static HashMap<String, Collection<String>> ANAGRAMS_MEMORY = new HashMap<>();
+    private HashMap<String, Collection<String>> ANAGRAMS_MEMORY = new HashMap<>();
 
 
     public void saveWord(String word){
@@ -28,7 +28,7 @@ public class AnagramCache {
         ANAGRAMS_MEMORY.put(anagramKey, entryList);
     }
 
-    private static String getAnagramKey(String word) {
+    private String getAnagramKey(String word) {
         var anagramTokens = word.toLowerCase().toCharArray();
         Arrays.sort(anagramTokens);
         return new String(anagramTokens);
