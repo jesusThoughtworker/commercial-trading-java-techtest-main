@@ -55,11 +55,7 @@ class AnagramRepositoryTest {
 
     private static final String FIRST_ANAGRAM = "Hello";
     private static final String SECOND_ANAGRAM = "hoLLE";
-
     private static final String NO_ANAGRAM = "cat";
-
-    private static final Collection<String> FIRST_ANAGRAM_LIST = List.of(SECOND_ANAGRAM, FIRST_ANAGRAM);
-    private static final Collection<String> SECOND_ANAGRAM_LIST = List.of(NO_ANAGRAM);
 
 
     @AfterEach
