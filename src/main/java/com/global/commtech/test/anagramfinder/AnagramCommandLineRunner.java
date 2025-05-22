@@ -25,15 +25,24 @@ public class AnagramCommandLineRunner implements CommandLineRunner {
         var fileReader = new FileReader(args[0]);
         var bufferedReader = new BufferedReader(fileReader);
         var line = "";
+        var previousWord = "";
         while ((line = bufferedReader.readLine()) != null) {
+            if(previousWord.length()<line.length()){
+                printAnagrams();
+            }
             anagramRepository.saveWord(line);
+            previousWord = new String(line);
         }
+        printAnagrams();
+    }
 
+    private void printAnagrams() {
         anagramRepository.listAnagrams().forEach(
                 anagramList -> {
                     System.out.println(String.join(",", anagramList));
                 }
         );
+        anagramRepository.reset();
     }
 
     @Autowired
