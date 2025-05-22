@@ -1,14 +1,14 @@
 package com.global.commtech.test.anagramfinder;
 
-import java.io.File;
-import java.io.FileReader;
-
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 import org.springframework.util.Assert;
+
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 
 @Component
 @RequiredArgsConstructor
@@ -26,7 +26,7 @@ public class AnagramCommandLineRunner implements CommandLineRunner {
         var line = "";
         var previousWord = "";
         while ((line = bufferedReader.readLine()) != null) {
-            if(previousWord.length()<line.length()){
+            if (previousWord.length() < line.length()) {
                 printAnagrams();
             }
             anagramRepository.saveWord(line);

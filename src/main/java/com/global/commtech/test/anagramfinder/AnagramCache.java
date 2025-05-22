@@ -13,10 +13,10 @@ public class AnagramCache {
     private HashMap<String, Collection<String>> ANAGRAMS_MEMORY = new HashMap<>();
 
 
-    public void saveWord(String word){
+    public void saveWord(String word) {
         var anagramKey = getAnagramKey(word);
 
-        if (ANAGRAMS_MEMORY.containsKey(anagramKey)){
+        if (ANAGRAMS_MEMORY.containsKey(anagramKey)) {
             var entryList = (ArrayList<String>) ANAGRAMS_MEMORY.get(anagramKey);
             entryList.add(word);
             ANAGRAMS_MEMORY.put(anagramKey, entryList);
@@ -34,7 +34,7 @@ public class AnagramCache {
         return new String(anagramTokens);
     }
 
-    public Collection<Collection<String>> listAnagrams(){
+    public Collection<Collection<String>> listAnagrams() {
         return ANAGRAMS_MEMORY.values().stream().toList();
     }
 

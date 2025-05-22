@@ -10,14 +10,14 @@ import static org.assertj.core.api.Assertions.assertThat;
 class AnagramCacheTest {
 
     @Test
-    public void it_should_not_return_null_listing_words(){
+    public void it_should_not_return_null_listing_words() {
         assertThat(anagramRepository.listAnagrams())
                 .as("It should not return null")
                 .isNotNull();
     }
 
     @Test
-    public void it_should_save_an_anagram_when_it_is_not_saved(){
+    public void it_should_save_an_anagram_when_it_is_not_saved() {
         anagramRepository.saveWord(FIRST_ANAGRAM);
         assertThat(anagramRepository.listAnagrams())
                 .as("It should return the expected anagrams list")
@@ -25,7 +25,7 @@ class AnagramCacheTest {
     }
 
     @Test
-    public void it_should_save_an_anagram_in_the_same_anagram_list(){
+    public void it_should_save_an_anagram_in_the_same_anagram_list() {
         anagramRepository.saveWord(FIRST_ANAGRAM);
         anagramRepository.saveWord(SECOND_ANAGRAM);
         assertThat(anagramRepository.listAnagrams().toArray()[0])
@@ -34,7 +34,7 @@ class AnagramCacheTest {
     }
 
     @Test
-    public void it_should_save_another_anagram_in_other_anagram_list(){
+    public void it_should_save_another_anagram_in_other_anagram_list() {
         anagramRepository.saveWord(FIRST_ANAGRAM);
         anagramRepository.saveWord(SECOND_ANAGRAM);
         anagramRepository.saveWord(NO_ANAGRAM);
@@ -50,7 +50,7 @@ class AnagramCacheTest {
 
 
     @AfterEach
-    public void resetRepository(){
+    public void resetRepository() {
         anagramRepository.reset();
     }
 
