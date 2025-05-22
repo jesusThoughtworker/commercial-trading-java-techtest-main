@@ -13,6 +13,10 @@ public class AnagramRepository {
 
     private static HashMap<String, Collection<String>> ANAGRAMS_MEMORY = new HashMap<>();
 
+    public AnagramRepository(IsAnagram isAnagram){
+        this.isAnagram = isAnagram;
+    }
+
     public void saveWord(String word){
         var anagramTokens = word.toLowerCase().toCharArray();
         Arrays.sort(anagramTokens);
@@ -38,6 +42,5 @@ public class AnagramRepository {
         ANAGRAMS_MEMORY = new HashMap<>();
     }
 
-    @Autowired
     private IsAnagram isAnagram;
 }
