@@ -62,19 +62,12 @@ class AnagramRepositoryTest {
     private static final Collection<String> FIRST_ANAGRAM_LIST = List.of(SECOND_ANAGRAM, FIRST_ANAGRAM);
     private static final Collection<String> SECOND_ANAGRAM_LIST = List.of(NO_ANAGRAM);
 
-    @BeforeEach
-    public void setupIsAnagram(){
-        Mockito.lenient().when(isAnagram.apply(SECOND_ANAGRAM, FIRST_ANAGRAM)).thenReturn(TRUE);
-        Mockito.lenient().when(isAnagram.apply(NO_ANAGRAM, FIRST_ANAGRAM)).thenReturn(FALSE);
-    }
 
     @AfterEach
     public void resetRepository(){
         anagramRepository.reset();
     }
 
-    @Mock
-    private IsAnagram isAnagram;
 
     @InjectMocks
     private AnagramRepository anagramRepository;

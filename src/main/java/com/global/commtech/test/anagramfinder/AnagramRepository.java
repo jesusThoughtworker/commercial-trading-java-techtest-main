@@ -1,6 +1,5 @@
 package com.global.commtech.test.anagramfinder;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -13,9 +12,6 @@ public class AnagramRepository {
 
     private static HashMap<String, Collection<String>> ANAGRAMS_MEMORY = new HashMap<>();
 
-    public AnagramRepository(IsAnagram isAnagram){
-        this.isAnagram = isAnagram;
-    }
 
     public void saveWord(String word){
         var anagramKey = getAnagramKey(word);
@@ -46,5 +42,4 @@ public class AnagramRepository {
         ANAGRAMS_MEMORY = new HashMap<>();
     }
 
-    private IsAnagram isAnagram;
 }
