@@ -18,9 +18,7 @@ public class AnagramRepository {
     }
 
     public void saveWord(String word){
-        var anagramTokens = word.toLowerCase().toCharArray();
-        Arrays.sort(anagramTokens);
-        var anagramKey = new String(anagramTokens);
+        var anagramKey = getAnagramKey(word);
 
         if (ANAGRAMS_MEMORY.containsKey(anagramKey)){
             var entryList = (ArrayList<String>) ANAGRAMS_MEMORY.get(anagramKey);
@@ -32,6 +30,12 @@ public class AnagramRepository {
         var entryList = new ArrayList<String>();
         entryList.add(word);
         ANAGRAMS_MEMORY.put(anagramKey, entryList);
+    }
+
+    private static String getAnagramKey(String word) {
+        var anagramTokens = word.toLowerCase().toCharArray();
+        Arrays.sort(anagramTokens);
+        return new String(anagramTokens);
     }
 
     public Collection<Collection<String>> listAnagrams(){
