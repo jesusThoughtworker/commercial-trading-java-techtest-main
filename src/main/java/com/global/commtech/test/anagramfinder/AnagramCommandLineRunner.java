@@ -45,5 +45,5 @@ public class AnagramCommandLineRunner implements CommandLineRunner {
     }
 
     @Autowired
-    private AnagramRepository anagramRepository;
+    private AnagramCache anagramRepository;
 }

@@ -8,7 +8,7 @@ import java.util.Collection;
 import java.util.HashMap;
 
 @Component
-public class AnagramRepository {
+public class AnagramCache {
 
     private static HashMap<String, Collection<String>> ANAGRAMS_MEMORY = new HashMap<>();
 

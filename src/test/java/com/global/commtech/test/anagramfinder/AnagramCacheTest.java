@@ -1,22 +1,13 @@
 package com.global.commtech.test.anagramfinder;
 
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.Mockito;
-import org.mockito.junit.jupiter.MockitoExtension;
 
-import java.util.Collection;
 import java.util.List;
 
-import static java.lang.Boolean.FALSE;
-import static java.lang.Boolean.TRUE;
 import static org.assertj.core.api.Assertions.assertThat;
 
-class AnagramRepositoryTest {
+class AnagramCacheTest {
 
     @Test
     public void it_should_not_return_null_listing_words(){
@@ -64,5 +55,5 @@ class AnagramRepositoryTest {
     }
 
 
-    private final AnagramRepository anagramRepository = new AnagramRepository();
+    private final AnagramCache anagramRepository = new AnagramCache();
 }
