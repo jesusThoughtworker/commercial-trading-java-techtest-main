@@ -30,7 +30,7 @@ public class AnagramCommandLineRunner implements CommandLineRunner {
                 printAnagrams();
             }
             anagramRepository.saveWord(line);
-            previousWord = new String(line);
+            previousWord = line;
         }
         printAnagrams();
     }

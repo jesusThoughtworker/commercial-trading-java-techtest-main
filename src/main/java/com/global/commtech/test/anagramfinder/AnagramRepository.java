@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashMap;
 
@@ -13,21 +14,20 @@ public class AnagramRepository {
     private static HashMap<String, Collection<String>> ANAGRAMS_MEMORY = new HashMap<>();
 
     public void saveWord(String word){
-        var anagramKey = ANAGRAMS_MEMORY.keySet().stream()
-                .filter(anagram -> isAnagram.apply(word, anagram))
-                .findFirst();
+        var anagramTokens = word.toLowerCase().toCharArray();
+        Arrays.sort(anagramTokens);
+        var anagramKey = new String(anagramTokens);
 
-        var entryList = new ArrayList<String>();
-
-        if (anagramKey.isPresent()){
-            entryList = (ArrayList<String>) ANAGRAMS_MEMORY.get(anagramKey.get());
+        if (ANAGRAMS_MEMORY.containsKey(anagramKey)){
+            var entryList = (ArrayList<String>) ANAGRAMS_MEMORY.get(anagramKey);
             entryList.add(word);
-            ANAGRAMS_MEMORY.put(anagramKey.get(), entryList);
+            ANAGRAMS_MEMORY.put(anagramKey, entryList);
             return;
         }
 
+        var entryList = new ArrayList<String>();
         entryList.add(word);
-        ANAGRAMS_MEMORY.put(word, entryList);
+        ANAGRAMS_MEMORY.put(anagramKey, entryList);
     }
 
     public Collection<Collection<String>> listAnagrams(){
