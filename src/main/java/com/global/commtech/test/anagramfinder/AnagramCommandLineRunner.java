@@ -14,6 +14,10 @@ import java.io.FileReader;
 @RequiredArgsConstructor
 public class AnagramCommandLineRunner implements CommandLineRunner {
 
+
+    @Autowired
+    private AnagramCache anagramRepository;
+
     @Override
     public void run(final String... args) throws Exception {
         Assert.isTrue(args.length == 1, "Please ensure that the input file is provided");
@@ -44,6 +48,4 @@ public class AnagramCommandLineRunner implements CommandLineRunner {
         anagramRepository.reset();
     }
 
-    @Autowired
-    private AnagramCache anagramRepository;
 }
