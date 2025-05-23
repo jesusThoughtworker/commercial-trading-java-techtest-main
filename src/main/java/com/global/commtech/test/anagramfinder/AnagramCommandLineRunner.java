@@ -16,7 +16,7 @@ public class AnagramCommandLineRunner implements CommandLineRunner {
 
 
     @Autowired
-    private AnagramCache anagramRepository;
+    private AnagramCache anagramCache;
 
     @Override
     public void run(final String... args) throws Exception {
@@ -33,19 +33,19 @@ public class AnagramCommandLineRunner implements CommandLineRunner {
             if (previousWord.length() < line.length()) {
                 printAnagrams();
             }
-            anagramRepository.saveWord(line);
+            anagramCache.saveWord(line);
             previousWord = line;
         }
         printAnagrams();
     }
 
     private void printAnagrams() {
-        anagramRepository.listAnagrams().forEach(
+        anagramCache.listAnagrams().forEach(
                 anagramList -> {
                     System.out.println(String.join(",", anagramList));
                 }
         );
-        anagramRepository.reset();
+        anagramCache.reset();
     }
 
 }
